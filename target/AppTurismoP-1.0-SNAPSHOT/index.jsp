@@ -19,7 +19,7 @@
             <div class="row py-2">
                 <!-- Logo -->
                 <div class="col-5 d-flex">
-                    <a href="index.html" class="logo me-2">
+                    <a href="index.jsp" class="logo me-2">
                         <strong >Turismo Real Cl</strong>
                     </a>
 

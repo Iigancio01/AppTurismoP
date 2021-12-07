@@ -45,6 +45,7 @@ public class ServiciosDAO implements CrudServicios {
                 se.setIdSubFamiliaServicio(rs.getString("IDSUB_FAMILIA_SERVICIO"));
                 se.setIdFamiliaServicio(rs.getString("FAMILIA_SERVICIO_IDFAMILIA_SERVICIO"));
                 se.setNombreSubFamilia(rs.getString("NOM_SUBFAMILIA"));
+                se.setNombreFam(rs.getString("NOM_FAMILIA"));
 
                 datos.add(se);
             }
@@ -68,6 +69,7 @@ public class ServiciosDAO implements CrudServicios {
               se.setIdSubFamiliaServicio(rs.getString("IDSUB_FAMILIA_SERVICIO"));
               se.setIdFamiliaServicio(rs.getString("FAMILIA_SERVICIO_IDFAMILIA_SERVICIO"));
               se.setNombreSubFamilia(rs.getString("NOM_SUBFAMILIA"));
+              se.setNombreFam(rs.getString("NOM_FAMILIA"));
             }
         }catch(Exception e){
             
@@ -81,11 +83,22 @@ public class ServiciosDAO implements CrudServicios {
        
         try{
             con=conex.getConnection();
+            
+                  CallableStatement sp_listar_id_sub_fam = con.prepareCall("{call sp_listar_id_sub_fam(?)}");
+                    sp_listar_id_sub_fam.registerOutParameter(1, OracleTypes.CURSOR);
+                    sp_listar_id_sub_fam.execute();
+                    ResultSet rs = ((OracleCallableStatement)sp_listar_id_sub_fam).getCursor(1);
+
+
+
+                    while(rs.next()){
+                        se.setIdSubFamiliaServicio(rs.getString("IdSubSeq"));
                     CallableStatement sp_insertar_servicio = con.prepareCall("{call sp_insertar_servicio(?,?,?)}");
                            sp_insertar_servicio.setString(1,se.getIdSubFamiliaServicio());
                            sp_insertar_servicio.setString(2,se.getIdFamiliaServicio());
                            sp_insertar_servicio.setString(3,se.getNombreSubFamilia());
                            sp_insertar_servicio.execute();
+                    }
         }catch(Exception e){
              System.out.println("No se ha podido insertar los datos"+ e.getMessage()); 
         }

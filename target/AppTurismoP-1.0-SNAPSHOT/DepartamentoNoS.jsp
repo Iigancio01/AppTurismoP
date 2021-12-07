@@ -23,7 +23,7 @@
                 <div class="row py-2">
                     <!-- Logo -->
                     <div class="col-5 d-flex">
-                        <a href="index.html" class="logo me-2">
+                        <a href="/AppTurismoP/" class="logo me-2">
                             <strong >Turismo Real Cl</strong>
                         </a>
                     </div>
@@ -36,12 +36,12 @@
                         </div> 
 
                         <div class="menu-enlaces d-flex align-items-center">
-                        <a href="/AppTurismo3.0/VistaArriendoNoS.jsp" class="px-4  d-flex align-items-center text-center">
+                        <a href="/AppTurismoP/VistaArriendoNoS.jsp" class="px-4  d-flex align-items-center text-center">
                             <span>Arriendos</span>
                         </a>
                         </div>
                        <div class="d-flex flex-row align-items-center">
-                           <a href="/AppTurismo3.0/Login.jsp"class="btn-perfil">
+                           <a href="/AppTurismoP/Login.jsp"class="btn-perfil">
                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
                                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
                                </svg>

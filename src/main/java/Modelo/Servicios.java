@@ -12,16 +12,18 @@ public class Servicios {
    String IdSubFamiliaServicio;
    String IdFamiliaServicio;
    String NombreSubFamilia;
+   String NombreFam;
    
    
 
     public Servicios() {
     }
 
-    public Servicios(String IdSubFamiliaServicio, String IdFamiliaServicio, String NombreSubFamilia) {
+    public Servicios(String IdSubFamiliaServicio, String IdFamiliaServicio, String NombreSubFamilia,  String NombreFam) {
         this.IdSubFamiliaServicio = IdSubFamiliaServicio;
         this.IdFamiliaServicio = IdFamiliaServicio;
         this.NombreSubFamilia = NombreSubFamilia;
+        this.NombreFam = NombreFam;
     }
 
     public String getIdSubFamiliaServicio() {
@@ -47,6 +49,12 @@ public class Servicios {
     public void setNombreSubFamilia(String NombreSubFamilia) {
         this.NombreSubFamilia = NombreSubFamilia;
     }
-   
+       public String getNombreFam() {
+        return NombreFam;
+    }
+
+    public void setNombreFam(String NombreFam) {
+        this.NombreFam = NombreFam;
+    }
    
 }

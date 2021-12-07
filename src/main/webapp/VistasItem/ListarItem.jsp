@@ -56,7 +56,7 @@
                                         <td class="text-center"><%= it.getIdItem()%></td>
                                         <td class="text-center"><%= it.getnombrefam() %></td>
                                         <td class="text-center"><%= it.getDescripcion()%></td>
-                                        <td class="text-center"><%= it.getValorItem()%></td>
+                                        <td class="text-center">$<%= it.getValorItem()%></td>
                                         <td class="text-center">
                                             <a class="btn btn-warning" href="ControladorItems?accion=editarItem&IdItem=<%=it.getIdItem()%>" target="ContenedorPrincipal">Editar</a>
                                             <a class="btn btn-danger" href="ControladorItems?accion=eliminarItem&IdItem=<%=it.getIdItem()%>" onclick="return confirm('¿Seguro que quieres eliminar?')" >Eliminar</a>

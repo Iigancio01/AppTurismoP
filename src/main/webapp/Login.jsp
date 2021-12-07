@@ -21,7 +21,7 @@
             <div class="row py-2">
                 <!-- Logo -->
                 <div class="col-6 d-flex">
-                    <a href="/AppTurismo3.0/" class="logo">
+                    <a href="/AppTurismoP/" class="logo">
                         <strong >Turismo Real Cl</strong>
                     </a>
 
@@ -29,12 +29,12 @@
                 <!-- Enlaces -->
                 <div class="col-12 justify-content-center  col-md-6 enlaces d-flex text-end justify-content-md-end">
                     <div class="menu-enlaces d-flex align-items-center">
-                        <a href="ControladorVistaCliente?accion=ServiciosExtraLista" class="text-black px-4  d-flex align-items-center text-center" >
+                        <a href="#" class="text-black px-4  d-flex align-items-center text-center" >
                             <span>Turismo</span>
                         </a>
                     </div>
                     <div class="menu-enlaces d-flex align-items-center">
-                    <a href="/AppTurismo3.0/VistaArriendoNoS.jsp" class="text-black px-4  d-flex align-items-center text-center">
+                    <a href="/AppTurismoP/VistaArriendoNoS.jsp" class="text-black px-4  d-flex align-items-center text-center">
                         <span>Arriendos</span>
                     </a>
                     </div>

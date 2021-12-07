@@ -20,8 +20,6 @@
             <h1>Agregar Cliente</h1>
             <form action="ControladorCliente"> Rut Cliente:<br>
                 <input class="form-control" type="text" name="txtRutCliente"><br>
-                Id Usuario:<br>
-                <input class="form-control" type="text" name="txtIdUsuario"><br> 
                 Id Comuna:<br>
                <select data-live-search="true"  class="selectpicker" name="txtIdComuna">
                     <option value="1"> Arica</option>

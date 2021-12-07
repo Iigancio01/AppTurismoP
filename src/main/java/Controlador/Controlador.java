@@ -45,6 +45,7 @@ public class Controlador extends HttpServlet {
             String pas=request.getParameter("txtpassword");
             usu.setCorreousuario(em);
             usu.setContraseña(pas);
+            ;
             r=dao.validar(usu);
             HttpSession sesion = request.getSession();
             if(r==1){

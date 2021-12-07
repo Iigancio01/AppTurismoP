@@ -14,17 +14,20 @@ public class Usuario {
     String contraseña;
     String nombreusuario;
     String correousuario;
+    String rut;
     
     public Usuario(){
         
     }
 
-    public Usuario(String idusuario, String tipousuario, String contraseña, String nombreusuario, String correousuario) {
+    public Usuario(String idusuario, String tipousuario, String contraseña, String nombreusuario, String correousuario, String rut) {
         this.idusuario = idusuario;
         this.tipousuario = tipousuario;
         this.contraseña = contraseña;
         this.nombreusuario = nombreusuario;
         this.correousuario = correousuario;
+        this.rut = rut;
+    
     }
 
     public String getIdusuario() {
@@ -65,5 +68,12 @@ public class Usuario {
 
     public void setCorreousuario(String correousuario) {
         this.correousuario = correousuario;
+    }  
+    public String getrut() {
+        return rut;
+    }
+
+    public void setrut(String rut) {
+        this.rut = rut;
     }
 }

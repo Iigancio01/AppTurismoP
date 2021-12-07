@@ -43,7 +43,7 @@ public class UsuarioDAO implements ValidarLogin {
                 usu.setContraseña(rs.getString("PASSWORD_2"));
                 usu.setTipousuario(rs.getString("TIPO_USUARIO_IDTIPO_USUARIO"));
                 usu.setNombreusuario(rs.getString("NOMBREUSUARIO"));
-               
+
             }
             
             if(r==1 && "1".equals(usu.getTipousuario())){

@@ -76,7 +76,7 @@
                                     <td class="text-center"><%= est%></td>
                                     <td class="text-center">
                                         <a class="btn btn-warning" href="ControladorCliente?accion=editarCliente&RutCliente=<%=cli.getRutCliente()%>" target="ContenedorPrincipal">Editar</a>
-                                        <a class="btn btn-danger" href="ControladorCliente?accion=eliminarCliente&RutCliente=<%=cli.getRutCliente()%>" onclick="return confirm('¿Seguro que quieres eliminar?')" >Eliminar</a>
+                                        <a class="btn btn-danger" href="ControladorCliente?accion=eliminarCliente&RutCliente=<%=cli.getRutCliente()%>" onclick="return confirm('¿Seguro que quieres Desactivar el ususario?')" >Desactivar</a>
                                     </td>
                                 </tr>
                                 <%}%>

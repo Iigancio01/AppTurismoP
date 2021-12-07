@@ -34,7 +34,7 @@
                                     <tr>
                                         <th class="text-center">Id Subfamilia servicio</th>
                                         <th class="text-center">Id Familia servicio</th>
-                                        <th class="text-center">Nombre Subfamilia</th>
+                                        <th class="text-center">Nombre Servicio</th>
                                         <th class="text-center">Accion</th>
                                     </tr>
                                 </thead>
@@ -49,7 +49,7 @@
                                 <tbody>
                                 <tr>
                                     <td class="text-center"><%=se.getIdSubFamiliaServicio()%></td>
-                                    <td class="text-center"><%=se.getIdFamiliaServicio()%></td>
+                                    <td class="text-center"><%=se.getNombreFam()%></td>
                                     <td class="text-center"><%=se.getNombreSubFamilia()%></td>
                                     <td class="text-center">
                                         <a class="btn btn-warning" href="ControladorServicios?accion=editServicio&IdSubFamiliaServicio=<%=se.getIdSubFamiliaServicio()%>" target="ContenedorPrincipal">Editar</a>
@@ -62,7 +62,7 @@
                                     <tr>
                                         <th class="text-center">Id Subfamilia servicio</th>
                                         <th class="text-center">Id Familia servicio</th>
-                                        <th class="text-center">Nombre Subfamilia</th>
+                                        <th class="text-center">Nombre Servicio</th>
                                         <th class="text-center">Accion</th>
                                     </tr>
                                 </tfoot>

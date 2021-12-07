@@ -22,8 +22,16 @@
                 Id subfamilia servicio:<br>
                 <input class="form-control" style="background-color: #ccc " type="text" name="txtIdSubFamiliaServicio" value="<%=se.getIdSubFamiliaServicio()%>" readonly><br>
                 Id Familia servicio:<br>
-                <input class="form-control" type="text" name="txtIdFamiliaServicio" value="<%=se.getIdFamiliaServicio()%>"><br>
-                Id Nombre sub familia:<br>
+                <select class="form-control" required name="txtIdFamiliaServicio" value="<%=se.getIdFamiliaServicio()%>">   
+                      <option value='<%=se.getIdFamiliaServicio()%>'><%=se.getNombreFam()%></option>
+                      <option value='1'>Tour</option>
+                      <option value='2'>Paquete Turistico</option>
+                      <option value='3'>Transporte</option>
+                 
+                        
+                
+                </select><br>
+                Nombre Servicio:<br>
                 <input class="form-control" type="text" name="txtNombreSubFamilia" value="<%=se.getNombreSubFamilia()%>"><br>
                 <button class="btn btn-primary" type="submit" name="accion" value="actualizarServicio">Actualizar Cliente</button><br>
             </form>

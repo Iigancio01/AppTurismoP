@@ -17,17 +17,19 @@ public class Arriendo {
     String FechaInicio;
     String FechaFin;
     int Monto;
+    String rut;
 
     public Arriendo() {
     }
 
-    public Arriendo(String IdArriendo, String IdDepartamento, String IdMasterArriendo, String FechaInicio, String FechaFin, int Monto) {
+    public Arriendo(String IdArriendo, String IdDepartamento, String IdMasterArriendo, String FechaInicio, String FechaFin, int Monto, String rut) {
         this.IdArriendo = IdArriendo;
         this.IdDepartamento = IdDepartamento;
         this.IdMasterArriendo = IdMasterArriendo;
         this.FechaInicio = FechaInicio;
         this.FechaFin = FechaFin;
-        this.Monto = Monto;
+        this.Monto = Monto;       
+        this.rut = rut;
     }
 
     public String getIdArriendo() {
@@ -77,7 +79,13 @@ public class Arriendo {
     public void setMonto(int Monto) {
         this.Monto = Monto;
     }
-    
+     public String getrut() {
+        return rut;
+    }
+
+    public void setrut(String rut) {
+        this.rut = rut;
+    }
     
    
 }

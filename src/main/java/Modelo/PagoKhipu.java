@@ -39,7 +39,7 @@ public class PagoKhipu {
 
             Map<String, Object> options = new HashMap<>();
             options.put("transactionId", "MTI-100");
-            options.put("returnUrl", "http://localhost:8080/AppTurismoP/ControladorVistaCliente?accion=DepartamentoSesion");
+            options.put("returnUrl", "http://localhost:8080/AppTurismoP1.0/ControladorVistaCliente?accion=DepartamentoSesion");
             options.put("cancelUrl", "");
             options.put("pictureUrl", "");
             options.put("notifyUrl", "http://mi-ecomerce.com/backend/notify");

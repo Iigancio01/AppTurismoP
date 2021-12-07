@@ -59,7 +59,7 @@ public class ControladorArriendo extends HttpServlet {
             String IdMasterArriendo=request.getParameter("txtIdMasterArriendo");
             String FechaInicio=request.getParameter("txtFechaInicio");
             String FechaFin=request.getParameter("txtFechaFin");
-            int Monto=parseInt(request.getParameter("txtMonto"));
+            
 
             arri.setIdArriendo(IdArriendo);
             arri.setIdDepartamento(IdDepartamento);
@@ -67,7 +67,7 @@ public class ControladorArriendo extends HttpServlet {
             arri.setFechaInicio(FechaInicio.replace('T', ' '));
             arri.setFechaFin(FechaFin.replace('T',' '));
             
-            arri.setMonto(Monto);
+          
 
             arriDAO.addArriendo(arri);
             
@@ -100,6 +100,25 @@ public class ControladorArriendo extends HttpServlet {
             
             acceso=VerArriendosEdit;
             
+        }else if(action.equalsIgnoreCase("NuevoArriendocli")){
+            
+            String IdArriendo=request.getParameter("txtIdArriendo");
+            String IdDepartamento=request.getParameter("txtIdDepartamento");
+            String rut=request.getParameter("txtrut");
+            String FechaInicio=request.getParameter("txtFechaInicio");
+            String FechaFin=request.getParameter("txtFechaFin");
+            
+            arri.setrut(rut);
+            arri.setIdArriendo(IdArriendo);
+            arri.setIdDepartamento(IdDepartamento);
+            arri.setFechaInicio(FechaInicio.replace('T', ' '));
+            arri.setFechaFin(FechaFin.replace('T',' '));
+            
+          
+
+            arriDAO.addArriendoCli(arri);
+            
+            acceso=VerArriendosEdit;
         }
         
         

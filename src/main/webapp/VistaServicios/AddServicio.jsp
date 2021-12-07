@@ -10,11 +10,16 @@
             <div class="col-lg-6">
             <h1>Agregar Servicio</h1>
             <form action="ControladorServicios">
-                Id subfamilia servicio:<br>
-                <input class="form-control" type="text" name="txtIdSubFamiliaServicio"><br>
-                Id Familia servicio:<br>
-                <input class="form-control" type="text" name="txtIdFamiliaServicio"><br>
-                Id Nombre sub familia:<br>
+               
+                Familia servicio:<br>
+                <select class="form-control" type="text" required name="txtIdFamiliaServicio">
+                     <option value=''>Seleccione...</option>
+                     <option value='1'>Tour</option>
+                     <option value='2'>Paquete Turistico</option>
+                     <option value='3'>Transporte</option>
+                 
+                </select><br>
+                Nombre Servicio:<br>
                 <input class="form-control" type="text" name="txtNombreSubFamilia"><br>
                 <button  class="btn btn-primary" type="submit" name="accion" value="AgregarServicio" >Agregar Servicio</button><br>
             </form>

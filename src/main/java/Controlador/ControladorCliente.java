@@ -89,6 +89,7 @@ public class ControladorCliente extends HttpServlet {
             String NombreCli=request.getParameter("txtNombreCli");
             String ApellidoPC=request.getParameter("txtApellidoPC");
             String ApellidoMC=request.getParameter("txtApellidoMC");
+            int estado=parseInt(request.getParameter("txtEstado"));
             
             cli.setRutCliente(RutCliente);
             cli.setIdUsuario(IdUsuario);
@@ -96,6 +97,7 @@ public class ControladorCliente extends HttpServlet {
             cli.setNombreCli(NombreCli);
             cli.setAppellidoPC(ApellidoPC);
             cli.setApellidoMC(ApellidoMC);
+            cli.setestado(estado);
            
             cliDAO.editCliente(cli);
             acceso=listarCliente;

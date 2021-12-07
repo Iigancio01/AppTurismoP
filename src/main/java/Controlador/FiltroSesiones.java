@@ -108,7 +108,7 @@ public class FiltroSesiones implements Filter {
         if(sesion.getAttribute("admin") != null || sesion.getAttribute("cliente") != null ){
            chain.doFilter(request, response); 
         }else{
-            ((HttpServletResponse)response).sendRedirect("/AppTurismo3.0/Error.jsp");
+            ((HttpServletResponse)response).sendRedirect("/AppTurismoP/Error.jsp");
         }
         
 
