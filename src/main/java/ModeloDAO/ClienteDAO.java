@@ -9,6 +9,7 @@ import Modelo.Cliente;
 import java.util.ArrayList;
 import java.util.List;
 import Config.Conexion;
+import static java.lang.Integer.parseInt;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -44,6 +45,8 @@ public class ClienteDAO implements CrudCliente{
                             cli.setNombreCli(rs.getString("NOMBRE"));
                             cli.setAppellidoPC(rs.getString("APELLIDOP"));
                             cli.setApellidoMC(rs.getString("APELLIDOM"));
+                            cli.setnombre_com(rs.getString("nombre_com"));
+                            cli.setestado(parseInt(rs.getString("activo")));
                             
                             datos.add(cli);
                             }

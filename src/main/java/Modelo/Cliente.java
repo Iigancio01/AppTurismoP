@@ -19,11 +19,13 @@ public class Cliente {
     String Correo;
     String Contrasena;
     String TipoUsuario;
+    String nombre_com;
+    int estado;
 
     public Cliente() {
     }
 
-    public Cliente(String RutCliente, String IdUsuario, String IdComuna, String NombreCli, String AppellidoPC, String ApellidoMC, String Correo, String Contrasena, String TipoUsuario) {
+    public Cliente(String RutCliente, String IdUsuario, String IdComuna, String NombreCli, String AppellidoPC, String ApellidoMC, String Correo, String Contrasena, String TipoUsuario,  String nombre_com, int estado) {
         this.RutCliente = RutCliente;
         this.IdUsuario = IdUsuario;
         this.IdComuna = IdComuna;
@@ -32,7 +34,9 @@ public class Cliente {
         this.ApellidoMC = ApellidoMC;
         this.Correo = Correo;
         this.Contrasena = Contrasena;
-        this.TipoUsuario = TipoUsuario;
+        this.TipoUsuario = TipoUsuario;   
+        this.nombre_com = nombre_com;
+        this.estado = estado;
     }
 
     public String getRutCliente() {
@@ -105,6 +109,21 @@ public class Cliente {
 
     public void setTipoUsuario(String TipoUsuario) {
         this.TipoUsuario = TipoUsuario;
+    }   
+    
+    public String getnombre_com() {
+        return nombre_com;
+    }
+
+    public void setnombre_com(String nombre_com) {
+        this.nombre_com = nombre_com;
+    }   
+    public int getestado() {
+        return estado;
+    }
+
+    public void setestado(int estado) {
+        this.estado = estado;
     }
 
 

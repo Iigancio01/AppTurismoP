@@ -48,6 +48,8 @@ public class DepartamentosDAO implements CrudDepartamento {
                 d.setIdComuna(rs.getString("COMUNA_IDCOMUNA"));
                 d.setDireccion(rs.getString("DIRECCION"));
                 d.setDescripcion(rs.getString("Descripcion"));
+                d.setnombre_com(rs.getString("nombre_com"));
+                d.settarifa(parseInt(rs.getString("tarifa")));
                 datos.add(d);
             }
         }catch (Exception e){
@@ -72,6 +74,8 @@ public class DepartamentosDAO implements CrudDepartamento {
                 dep.setIdComuna(rs.getString("COMUNA_IDCOMUNA"));
                 dep.setDireccion(rs.getString("DIRECCION"));
                 dep.setDescripcion(rs.getString("Descripcion"));
+                dep.setnombre_com(rs.getString("nombre_com"));
+                dep.settarifa(parseInt(rs.getString("tarifa")));
                 
             }
         }catch (Exception e){
@@ -85,13 +89,26 @@ public class DepartamentosDAO implements CrudDepartamento {
     public boolean addDpto(Departamentos dpto) {
           try{
             con=conex.getConnection();
+            
+            CallableStatement sp_listar_id_depto = con.prepareCall("{call sp_listar_id_depto(?)}");
+                    sp_listar_id_depto.registerOutParameter(1, OracleTypes.CURSOR);
+                    sp_listar_id_depto.execute( );
+                    ResultSet rs = ((OracleCallableStatement)sp_listar_id_depto).getCursor(1);
+
+
+
+                    while(rs.next()){
+                        dpto.setIdDepartamento(rs.getString("IdDeptoSeq"));
+                        
+
              CallableStatement sp_insertar_dpto = con.prepareCall("{call sp_insertar_dpto(?,?,?,?,?)}");
                 sp_insertar_dpto.setString(1,dpto.getIdDepartamento());
                 sp_insertar_dpto.setString(2,dpto.getIdTarifa());
                 sp_insertar_dpto.setString(3,dpto.getIdComuna());
                 sp_insertar_dpto.setString(4,dpto.getDireccion());
                 sp_insertar_dpto.setString(5,dpto.getDescripcion());
-                sp_insertar_dpto.execute();;
+                sp_insertar_dpto.execute();
+        }        
         }catch(Exception e){
             System.out.println("No se ha podido insertar los datos"+ e.getMessage());
         }
@@ -148,6 +165,8 @@ public class DepartamentosDAO implements CrudDepartamento {
                 d.setDireccion(rs.getString("DIRECCION"));
                 d.setDescripcion(rs.getString("Descripcion"));
                 d.setEstadoDpto(parseInt(rs.getString("ESTADODPTO")));
+                d.setnombre_com(rs.getString("nombre_com"));
+                d.settarifa(parseInt(rs.getString("tarifa")));
                 datos.add(d);
             }
         }catch (Exception e){
@@ -173,6 +192,8 @@ public class DepartamentosDAO implements CrudDepartamento {
                 d.setDireccion(rs.getString("DIRECCION"));
                 d.setDescripcion(rs.getString("Descripcion"));
                 d.setEstadoDpto(parseInt(rs.getString("ESTADODPTO")));
+                d.setnombre_com(rs.getString("nombre_com"));
+                d.settarifa(parseInt(rs.getString("tarifa")));
                 datos.add(d);
             }
         }catch (Exception e){

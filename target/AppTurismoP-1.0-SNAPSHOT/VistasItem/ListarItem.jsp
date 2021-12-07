@@ -54,7 +54,7 @@
                                 <tbody>
                                     <tr>
                                         <td class="text-center"><%= it.getIdItem()%></td>
-                                        <td class="text-center"><%= it.getIdFamiliaItem() %></td>
+                                        <td class="text-center"><%= it.getnombrefam() %></td>
                                         <td class="text-center"><%= it.getDescripcion()%></td>
                                         <td class="text-center"><%= it.getValorItem()%></td>
                                         <td class="text-center">

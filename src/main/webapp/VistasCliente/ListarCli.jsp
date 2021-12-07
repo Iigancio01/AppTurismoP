@@ -46,6 +46,7 @@
                                         <th class="text-center">Nombre</th>
                                         <th class="text-center">Apellido Paterno</th>
                                         <th class="text-center">Apellido Materno</th>
+                                        <th class="text-center">Estado</th>
                                         <th class="text-center">Accion</th>
                                     </tr>
                                 </thead>
@@ -54,17 +55,25 @@
                                     List<Cliente>list=dao.listarCliente();
                                     Iterator<Cliente>iter=list.iterator();
                                     Cliente cli=null;
+                                    String est= null;
                                     while(iter.hasNext()){
                                      cli=iter.next();
+                                     if(cli.getestado()==1){
+                                         
+                                         est= "Activo";
+                                     }else{
+                                          est= "Inactivo";
+                                     }
                                 %>    
                                 <tbody>
                                 <tr>
                                     <td class="text-center"><%= cli.getRutCliente()%></td>
                                     <td class="text-center"><%= cli.getIdUsuario()%></td>
-                                    <td class="text-center"><%= cli.getIdComuna()%></td>
+                                    <td class="text-center"><%= cli.getnombre_com()%></td>
                                     <td class="text-center"><%= cli.getNombreCli()%></td>
                                     <td class="text-center"><%= cli.getAppellidoPC()%></td>
                                     <td class="text-center"><%= cli.getApellidoMC()%></td>
+                                    <td class="text-center"><%= est%></td>
                                     <td class="text-center">
                                         <a class="btn btn-warning" href="ControladorCliente?accion=editarCliente&RutCliente=<%=cli.getRutCliente()%>" target="ContenedorPrincipal">Editar</a>
                                         <a class="btn btn-danger" href="ControladorCliente?accion=eliminarCliente&RutCliente=<%=cli.getRutCliente()%>" onclick="return confirm('¿Seguro que quieres eliminar?')" >Eliminar</a>
@@ -80,6 +89,7 @@
                                         <th class="text-center">Nombre</th>
                                         <th class="text-center">Apellido Paterno</th>
                                         <th class="text-center">Apellido Materno</th>
+                                        <th class="text-center">Estado</th>
                                         <th class="text-center">Accion</th>
                                     </tr>
                                 </tfoot>

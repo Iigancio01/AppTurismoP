@@ -48,6 +48,7 @@ public class ItemsDAO implements CrudItems {
                         it.setIdFamiliaItem(rs.getString("SUB_FAMILIA_ITEM_IDSUB_FAMILIA_ITEM"));
                         it.setDescripcion(rs.getString("DESCRIPCION"));
                         it.setValorItem(parseInt(rs.getString("VALOR")));
+                        it.setnombrefam(rs.getString("nombrefam"));
 
                         datos.add(it);
             }
@@ -72,6 +73,7 @@ public class ItemsDAO implements CrudItems {
                         itm.setIdFamiliaItem(rs.getString("SUB_FAMILIA_ITEM_IDSUB_FAMILIA_ITEM"));
                         itm.setDescripcion(rs.getString("DESCRIPCION"));
                         itm.setValorItem(parseInt(rs.getString("VALOR")));
+                        itm.setnombrefam(rs.getString("nombrefam"));
 
 
             }
@@ -80,19 +82,30 @@ public class ItemsDAO implements CrudItems {
         }
         return itm;
     }
-
+ 
     @Override
     public boolean addItems(Items it) {
-        
           try{
             con=conex.getConnection();
+                 CallableStatement sp_listar_id_item = con.prepareCall("{call sp_listar_id_item(?)}");
+                    sp_listar_id_item.registerOutParameter(1, OracleTypes.CURSOR);
+                    sp_listar_id_item.execute( );
+                    ResultSet rs = ((OracleCallableStatement)sp_listar_id_item).getCursor(1);
+
+
+
+                    while(rs.next()){
+                        it.setIdItem(rs.getString("IdItemSeq"));
+                        
+
+            
               CallableStatement sp_insertar_item = con.prepareCall("{call sp_insertar_item(?,?,?,?)}");
                 sp_insertar_item.setString(1,it.getIdItem());
                 sp_insertar_item.setString(2,it.getIdFamiliaItem());
                 sp_insertar_item.setString(3,it.getDescripcion());
                 sp_insertar_item.setInt(4,it.getValorItem());
                 sp_insertar_item.execute();
- 
+ }
         }catch(Exception e){
             System.out.println("No se ha podido insertar los datos"+ e.getMessage());
         }

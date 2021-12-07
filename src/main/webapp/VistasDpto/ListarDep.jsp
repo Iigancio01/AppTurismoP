@@ -57,8 +57,8 @@
                                 <tbody>
                                 <tr>
                                     <td class="text-center"><%= dpto.getIdDepartamento()%></td>
-                                    <td class="text-center"><%= dpto.getIdTarifa()%></td>
-                                    <td class="text-center"><%= dpto.getIdComuna()%></td>
+                                    <td class="text-center"><%= dpto.gettarifa()%></td>
+                                    <td class="text-center"><%= dpto.getnombre_com()%></td>
                                     <td class="text-center"><%= dpto.getDireccion()%></td>
                                     <td class="text-center"><%= dpto.getDescripcion()%></td>
                                     <td class="text-center">

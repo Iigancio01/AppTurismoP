@@ -10,10 +10,19 @@
             <div class="col-lg-6">
             <h1>Agregar Item</h1>
             <form action="ControladorItems">
-                Id Item<br>
-                <input class="form-control" type="text" name="txtIdItem"><br>
                 Id familia item<br>
-                <input class="form-control" type="combobox" name="txtIdFamiliaItem"><br>
+                <select class="form-control" type="combobox" name="txtIdFamiliaItem">
+                        <option value=''>Seleccione...</option>
+                        <option value='1'>Tecnologia</option>
+                        <option value='2'>Electro</option>
+                        <option value='3'>Muebles y organización</option>
+                        <option value='4'>Dormitorio</option>
+                        <option value='5'>Cocina y baño</option>
+                        <option value='6'>Decoración e iluminación</option>
+                        <option value='7'>Jardín y terraza</option>
+                        
+                    
+                </select><br>
                 Descripcion<br>
                 <input class="form-control" type="text" name="txtDescripcion"><br>
                 Valor<br>

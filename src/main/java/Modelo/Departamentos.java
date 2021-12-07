@@ -15,11 +15,13 @@ public class Departamentos {
     String MontoPas;
     String MontoMes;
     int Porcen;
+    int tarifa;
+    String nombre_com;
     
     public Departamentos() {
     }
 
-    public Departamentos(String IdDepartamento, String IdTarifa, String IdComuna, String Direccion, String Descripcion, int EstadoDpto, String MontoPas, String MontoMes, int Porcen) {
+    public Departamentos(String IdDepartamento, String IdTarifa, String IdComuna, String Direccion, String Descripcion, int EstadoDpto, String MontoPas, String MontoMes, int Porcen,  int tarifa, String nombre_com) {
         this.IdDepartamento = IdDepartamento;
         this.IdTarifa = IdTarifa;
         this.IdComuna = IdComuna;
@@ -28,7 +30,9 @@ public class Departamentos {
         this.EstadoDpto = EstadoDpto;
         this.MontoPas =  MontoPas;
         this.MontoPas =  MontoMes;
-        this.Porcen =  Porcen;
+        this.Porcen =  Porcen; 
+        this.tarifa =  tarifa;
+        this.nombre_com =  nombre_com;
     }
 
     public String getIdDepartamento() {
@@ -96,5 +100,17 @@ public class Departamentos {
     } 
     public int getPorcen(){
         return Porcen;
+    }    
+    public void settarifa(int tarifa) {
+        this.tarifa =  tarifa;
+    } 
+    public int gettarifa(){
+        return tarifa;
     }
+       public void setnombre_com(String nombre_com) {
+        this.nombre_com =  nombre_com;
+    } 
+    public String getnombre_com(){
+        return nombre_com;
+}
 }

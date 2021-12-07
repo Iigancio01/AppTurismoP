@@ -21,7 +21,18 @@
                 Id Item:<br>
                 <input class="form-control" style="background-color: #ccc "type="text" name="txtIdItem" value="<%= it.getIdItem() %>" readonly><br>
                 Id Familia Item:<br>
-                <input class="form-control" type="text" name="txtIdFamiliaItem" value="<%= it.getIdFamiliaItem() %>"><br>
+                <select class="form-control" type="text" name="txtIdFamiliaItem" value="<%= it.getIdFamiliaItem() %>">
+                   <option value='<%= it.getIdFamiliaItem() %>'><%= it.getnombrefam() %></option>
+                        <option value='1'>Tecnologia</option>
+                        <option value='2'>Electro</option>
+                        <option value='3'>Muebles y organización</option>
+                        <option value='4'>Dormitorio</option>
+                        <option value='5'>Cocina y baño</option>
+                        <option value='6'>Decoración e iluminación</option>
+                        <option value='7'>Jardín y terraza</option>
+                        
+                
+                </select><br>
                 Descripcion:<br>
                 <input class="form-control" type="text" name="txtDescripcion" value="<%= it.getDescripcion() %>"><br>
                 Valor:<br>

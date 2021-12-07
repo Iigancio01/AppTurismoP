@@ -9,16 +9,18 @@ public class Items {
     
     String IdItem;
     String IdFamiliaItem;
-    String Descripcion;
+    String Descripcion;  
+    String nombrefam;
     int ValorItem;
 
     public Items() {
     }
 
-    public Items(String IdItem, String IdFamiliaItem, String Descripcion, int ValorItem) {
+    public Items(String IdItem, String IdFamiliaItem, String Descripcion, int ValorItem, String nombrefam) {
         this.IdItem = IdItem;
         this.IdFamiliaItem = IdFamiliaItem;
         this.Descripcion = Descripcion;
+        this.nombrefam = nombrefam;
         this.ValorItem = ValorItem;
     }
 
@@ -44,6 +46,13 @@ public class Items {
 
     public void setDescripcion(String Descripcion) {
         this.Descripcion = Descripcion;
+    }   
+    public String getnombrefam() {
+        return nombrefam;
+    }
+
+    public void setnombrefam(String nombrefam) {
+        this.nombrefam = nombrefam;
     }
 
     public int getValorItem() {
