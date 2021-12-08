@@ -77,7 +77,7 @@
                         Fecha Fin:<br>
                         <input class="form-control" type="datetime-local" name="txtFechaFin"><br>
                        
-                        <button  class="btn btn-primary" type="submit" name="accion" value="NuevoArriendocli" ><a href="ControladorVistaCliente?accion=MetodoPago" >Hola</a></button><br>
+                        <button  class="btn btn-primary" type="submit" name="accion" value="NuevoArriendocli">Pagar</button><br>
                            
                     </form>
                     <form action="ControladorVistaCliente">

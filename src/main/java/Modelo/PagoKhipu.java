@@ -20,16 +20,21 @@ import com.khipu.ApiException;
 public class PagoKhipu {
    
     UrlKhipu url = new UrlKhipu();
+    Arriendo arrie = new Arriendo();
     
     String pure; 
     
     String prueba;
 
-    public  PaymentsCreateResponse Pagar(String NombreT, double monto) throws ApiException{
+    public  PaymentsCreateResponse Pagar(String NombreT, int monto) throws ApiException{
        
             int receiverId = 405842;
             String secretKey ="2c06ba672675be06d446635096be12d08873c3e6";
+            monto=arrie.getMonto();
+            System.out.println("pago: "+monto);
             Double montoD = Double.valueOf(monto);
+            
+            //System.out.println("pago: "+montoD);
 
             ApiClient apiClient = new ApiClient();
             apiClient.setKhipuCredentials(receiverId, secretKey);
@@ -40,8 +45,8 @@ public class PagoKhipu {
 
             Map<String, Object> options = new HashMap<>();
             options.put("transactionId", "MTI-100");
-            options.put("returnUrl", "http://localhost:8080/AppTurismoP/ControladorVistaCliente?accion=DepartamentoSesion");
-            options.put("cancelUrl", "http://localhost:8080/AppTurismoP/ControladorVistaCliente?accion=DepartamentoSesion");
+            options.put("returnUrl", "http://localhost:8080/AppTurismoP/ControladorArriendo?accion=PagoExitoso");
+            options.put("cancelUrl", "http://localhost:8080/AppTurismoP/ControladorArriendo?accion=PagoCancelado");
             options.put("pictureUrl", "");
             options.put("notifyUrl", "http://mi-ecomerce.com/backend/notify");
             options.put("notifyApiVersion", "1.3");
@@ -50,7 +55,7 @@ public class PagoKhipu {
 
                 responses = paymentsApi.paymentsPost(NombreT //Motivo de la compra
                         , "CLP" //Monedas disponibles CLP, USD, ARS, BOB
-                        , monto //Monto
+                        , montoD //Monto
                         , options //campos opcionales
                 );
 

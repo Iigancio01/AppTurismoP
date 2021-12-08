@@ -28,6 +28,8 @@ public class ControladorArriendo extends HttpServlet {
     String AgregarArriendo="VistaArriendos/AddArriendo.jsp";
     String EditarArriendo="VistaArriendos/EditArriendo.jsp";
     String pagoA="VistaArriendo/PagarKhipu.jsp";
+    String pagoEx="VistaArriendo/ConfirmacionPago.jsp";
+    String pagoCan="VistaArriendo/CancelarPago.jsp";
     
     Arriendo arri = new Arriendo();
     ArriendoDAO arriDAO = new ArriendoDAO();
@@ -120,6 +122,12 @@ public class ControladorArriendo extends HttpServlet {
             arriDAO.addArriendoCli(arri);
             
             acceso=pagoA;
+        }else if(action.equalsIgnoreCase("PagoExitoso")){
+            
+            acceso=pagoEx;
+        }else if(action.equalsIgnoreCase("PagoCancelado")){
+         
+            acceso=pagoCan;
         }
         
         

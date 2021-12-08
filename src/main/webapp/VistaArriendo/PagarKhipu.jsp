@@ -116,13 +116,13 @@
                                 
                                 String NombreT="Departamento en Coquimbo 3 habitaciones";
                                 
-                                int monto=arri.getMonto();
-                                double montoP=45000.0;
+                                int monto=0;
+                                
                                 
                             %>
                             <div class="flex-end">
                                         
-                                <a href="<%= pago.Pagar(NombreT, montoP).getPaymentUrl() %>" name="PagoKhipu">
+                                <a href="<%= pago.Pagar(NombreT, monto).getPaymentUrl() %>" name="PagoKhipu">
                                 <img border="0"  src="https://s3.amazonaws.com/static.khipu.com/buttons/2015/150x50-transfer.png" width="150" height="50">
 </a>
                                  

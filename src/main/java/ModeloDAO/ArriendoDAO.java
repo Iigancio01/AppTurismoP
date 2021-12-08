@@ -127,74 +127,79 @@ public class ArriendoDAO implements CrudArriendo{
         return false;
     }
 public boolean addArriendoCli(Arriendo arri) {
-  try{
-            con=conex.getConnection();
-           
-                  CallableStatement sp_validar_master = con.prepareCall("{call sp_validar_master(?,?)}");
-                    sp_validar_master.setString(1,arri.getrut());
-                    sp_validar_master.registerOutParameter(2, OracleTypes.CURSOR);
-                    sp_validar_master.execute();
-                    ResultSet rs2 = ((OracleCallableStatement)sp_validar_master).getCursor(2);
-                    while(rs2.next()){
-                int validar;
-                         
-                        validar = (rs2.getInt("count"));
-                  if(validar==0){
-                      
-                  CallableStatement sp_inserta_master = con.prepareCall("{call sp_inserta_master(?)}");
-                    sp_inserta_master.setString(1,arri.getrut());
-                    sp_inserta_master.execute();
-               }
-                    CallableStatement sp_id_master = con.prepareCall("{call sp_id_master(?,?)}");
-                    sp_id_master.setString(1,arri.getrut());
-                    sp_id_master.registerOutParameter(2, OracleTypes.CURSOR);
-                    sp_id_master.execute();
-                    ResultSet rs3 = ((OracleCallableStatement)sp_id_master).getCursor(2);
-                    while(rs3.next()){
-                      arri.setIdMasterArriendo(rs3.getString("idmaster_arriendo"));
-                           
-                CallableStatement sp_listar_id_arr = con.prepareCall("{call sp_listar_id_arr(?)}");
-                    sp_listar_id_arr.registerOutParameter(1, OracleTypes.CURSOR);
-                    sp_listar_id_arr.execute();
-                    ResultSet rs = ((OracleCallableStatement)sp_listar_id_arr).getCursor(1);
- 
+        try{
+              con=conex.getConnection();
 
-                    while(rs.next()){
-                        arri.setIdArriendo(rs.getString("IdArriSeq"));
-            
-                    CallableStatement sp_insertar_arriendo = con.prepareCall("{call sp_insertar_arriendo(?,?,?,?,?)}");
-                           sp_insertar_arriendo.setString(1,arri.getIdArriendo());
-                           sp_insertar_arriendo.setString(2,arri.getIdDepartamento());
-                           sp_insertar_arriendo.setString(3,arri.getIdMasterArriendo());
-                           sp_insertar_arriendo.setString(4,arri.getFechaInicio());
-                           sp_insertar_arriendo.setString(5,arri.getFechaFin());
-                           
-                           sp_insertar_arriendo.execute();
+                    CallableStatement sp_validar_master = con.prepareCall("{call sp_validar_master(?,?)}");
+                      sp_validar_master.setString(1,arri.getrut());
+                      sp_validar_master.registerOutParameter(2, OracleTypes.CURSOR);
+                      sp_validar_master.execute();
+                      ResultSet rs2 = ((OracleCallableStatement)sp_validar_master).getCursor(2);
+                      while(rs2.next()){
+                  int validar;
+
+                          validar = (rs2.getInt("count"));
+                    if(validar==0){
+
+                    CallableStatement sp_inserta_master = con.prepareCall("{call sp_inserta_master(?)}");
+                      sp_inserta_master.setString(1,arri.getrut());
+                      sp_inserta_master.execute();
+                 }
+                      CallableStatement sp_id_master = con.prepareCall("{call sp_id_master(?,?)}");
+                      sp_id_master.setString(1,arri.getrut());
+                      sp_id_master.registerOutParameter(2, OracleTypes.CURSOR);
+                      sp_id_master.execute();
+                      ResultSet rs3 = ((OracleCallableStatement)sp_id_master).getCursor(2);
+                      while(rs3.next()){
+                        arri.setIdMasterArriendo(rs3.getString("idmaster_arriendo"));
+
+                  CallableStatement sp_listar_id_arr = con.prepareCall("{call sp_listar_id_arr(?)}");
+                      sp_listar_id_arr.registerOutParameter(1, OracleTypes.CURSOR);
+                      sp_listar_id_arr.execute();
+                      ResultSet rs = ((OracleCallableStatement)sp_listar_id_arr).getCursor(1);
+
+
+                      while(rs.next()){
+                          arri.setIdArriendo(rs.getString("IdArriSeq"));
+
+                      CallableStatement sp_insertar_arriendo = con.prepareCall("{call sp_insertar_arriendo(?,?,?,?,?)}");
+                             sp_insertar_arriendo.setString(1,arri.getIdArriendo());
+                             sp_insertar_arriendo.setString(2,arri.getIdDepartamento());
+                             sp_insertar_arriendo.setString(3,arri.getIdMasterArriendo());
+                             sp_insertar_arriendo.setString(4,arri.getFechaInicio());
+                             sp_insertar_arriendo.setString(5,arri.getFechaFin());
+
+                             sp_insertar_arriendo.execute();
+                             }
+                      }
+
+
+                           CallableStatement sp_calcular_monto = con.prepareCall("{call sp_calcular_monto(?,?)}");
+                             sp_calcular_monto.setString(1,arri.getIdArriendo());
+                             sp_calcular_monto.registerOutParameter(2, OracleTypes.CURSOR);
+                          System.out.println("uwu");
+                             sp_calcular_monto.execute();  
+                             ResultSet rs1 = ((OracleCallableStatement)sp_calcular_monto).getCursor(2);
+                             while(rs1.next()){
+                             arri.setMonto(rs1.getInt("monto_tot"));
+                                 System.out.println("aaaaa:"+arri.getMonto());
+                             CallableStatement sp_actu_monto = con.prepareCall("{call sp_actu_monto(?,?)}");
+                             sp_actu_monto.setString(1,arri.getIdArriendo());
+                             sp_actu_monto.setInt(2,arri.getMonto());
+                             sp_actu_monto.execute();
                            }
-                    }
-      
-           
-                         CallableStatement sp_calcular_monto = con.prepareCall("{call sp_calcular_monto(?,?)}");
-                           sp_calcular_monto.setString(1,arri.getIdArriendo());
-                           sp_calcular_monto.registerOutParameter(2, OracleTypes.CURSOR);
-                        System.out.println("uwu");
-                           sp_calcular_monto.execute();  
-                           ResultSet rs1 = ((OracleCallableStatement)sp_calcular_monto).getCursor(2);
-                           while(rs1.next()){
-                           arri.setMonto(rs1.getInt("monto_tot"));
-                               System.out.println("aaaaa:"+arri.getMonto());
-                           CallableStatement sp_actu_monto = con.prepareCall("{call sp_actu_monto(?,?)}");
-                           sp_actu_monto.setString(1,arri.getIdArriendo());
-                           sp_actu_monto.setInt(2,arri.getMonto());
-                           sp_actu_monto.execute();
-                         }
-                    }
-        }catch(Exception e){
-             System.out.println("No se ha podido insertar los datos"+ e.getMessage());
-                
-        }
-        return false;
+                      }
+          }catch(Exception e){
+               System.out.println("No se ha podido insertar los datos"+ e.getMessage());
+
+          }
+          return false;
     }
+
+
+
+
+
     @Override
     public boolean editArriendo(Arriendo arri) {
         try{

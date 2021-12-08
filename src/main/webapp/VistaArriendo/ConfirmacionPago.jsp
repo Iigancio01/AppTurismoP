@@ -1,8 +1,4 @@
-<%-- 
-    Document   : ConfirmacionPago
-    Created on : 7 dic 2021, 23:16:43
-    Author     : avata
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
