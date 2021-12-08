@@ -35,7 +35,6 @@
                                         <th class="text-center">Id Mantenimiento</th>
                                         <th class="text-center">Id Departamento</th>
                                         <th class="text-center">Fecha</th>
-                                        <th class="text-center">Cambiar estado</th>
                                     </tr>
                                 </thead>
                                 <%
@@ -51,9 +50,7 @@
                                     <td class="text-center"><%=man.getIdMantencion()%></td>
                                     <td class="text-center"><%=man.getIdDepartmentoM()%></td>
                                     <td class="text-center"><%=man.getFechaM()%></td>
-                                    <td class="text-center">
-                                        <a class="btn btn-danger" href="ControladorMantencion?accion=EliminarMantenimiento&IdMantencion=<%=man.getIdMantencion()%>" onclick="return confirm('¿Seguro que quieres cancelar el mantenimiento?')" >Cancelar mantenimiento</a>
-                                    </td>
+                             
                                 </tr>
                                 <%}%>
                                 </tbody>
@@ -62,7 +59,6 @@
                                         <th class="text-center">Id Mantencion</th>
                                         <th class="text-center">Id Departamento</th>
                                         <th class="text-center">Fecha</th>
-                                        <th class="text-center">Cambiar estado</th>
                                     </tr>
                                 </tfoot>
                             </table>

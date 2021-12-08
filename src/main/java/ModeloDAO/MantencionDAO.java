@@ -66,11 +66,21 @@ public class MantencionDAO implements CrudMantencion{
     public boolean addDpto(Mantencion man) {
          try{
             con=conex.getConnection();
+              CallableStatement sp_id_mantencion = con.prepareCall("{call sp_id_mantencion(?)}");
+                    sp_id_mantencion.registerOutParameter(1, OracleTypes.CURSOR);
+                    sp_id_mantencion.execute( );
+                    ResultSet rs = ((OracleCallableStatement)sp_id_mantencion).getCursor(1);
+
+
+
+                    while(rs.next()){
+                        man.setIdMantencion(rs.getString("IdManSeq"));
                 CallableStatement sp_insertar_mantenimiento = con.prepareCall("{call sp_insertar_mantenimiento(?,?,?)}");
                    sp_insertar_mantenimiento.setString(1,man.getIdMantencion());
                    sp_insertar_mantenimiento.setString(2,man.getIdDepartmentoM());
                    sp_insertar_mantenimiento.setString(3,man.getFechaM());
                    sp_insertar_mantenimiento.execute();
+                    }
         }catch(Exception e){
             System.out.println("No se ha podido insertar los datos"+ e.getMessage());
         }
