@@ -249,7 +249,27 @@ public boolean addArriendoCli(Arriendo arri) {
         return arri;
     }
     
-    
+        @Override
+    public boolean validarArriendo() {        
+        try{
+            con=conex.getConnection();
+            CallableStatement sp_valida_arriendo = con.prepareCall("{call sp_valida_arriendo}");
+            sp_valida_arriendo.execute();
+        }catch(Exception e){
+            System.out.println("No se ha podido eliminar el arriendo"+ e.getMessage());
+        }
+        return false;
+    }    
+    public boolean eliminaArriendo() {        
+        try{
+            con=conex.getConnection();
+            CallableStatement sp_elimina_arriendo = con.prepareCall("{call sp_elimina_arriendo}");
+            sp_elimina_arriendo.execute();
+        }catch(Exception e){
+            System.out.println("No se ha podido eliminar el arriendo"+ e.getMessage());
+        }
+        return false;
+    } 
 }
 
 

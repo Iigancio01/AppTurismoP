@@ -4,6 +4,7 @@
  */
 package Controlador;
 
+import ModeloDAO.ArriendoDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -17,9 +18,9 @@ import javax.servlet.http.HttpServletResponse;
  * @author avata
  */
 public class ControladorConfirmarPago extends HttpServlet {
+    ArriendoDAO arriDAO= new ArriendoDAO();
     
-    
-    
+    String inicio= "InicioCliente.jsp";
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -36,12 +37,15 @@ public class ControladorConfirmarPago extends HttpServlet {
         
         if(action.equalsIgnoreCase("PagoExitoso")){
             
-            
-            
+            arriDAO.validarArriendo();
+            acceso =inicio;
             
             
         }if(action.equalsIgnoreCase("PagoCancelado")){
             
+            arriDAO.eliminaArriendo();
+            
+            acceso =inicio;
         }
         
         

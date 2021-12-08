@@ -15,7 +15,11 @@
                                 
                                 <img src="Css/img/Equis_roja.png" width="306" height="306"/>
                                 <h4>Presione aqui para terminar el proceso</h4>
-                                <button>Prueba</button>
+                               <form action="ControladorConfirmarPago">
+                                    
+                                    <button type="submit" name="accion" value="PagoCancelado" >Terminar</button>
+                                
+                                </form>
                             </div>
                 </div>
             </article>

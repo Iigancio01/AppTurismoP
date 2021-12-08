@@ -17,4 +17,6 @@ public interface CrudArriendo {
     public boolean addArriendo(Arriendo arri);
     public boolean editArriendo(Arriendo arri);
     public boolean deleteArriendo(String IdArriendo);
+   public boolean validarArriendo(); 
+   public boolean eliminaArriendo();
 }
