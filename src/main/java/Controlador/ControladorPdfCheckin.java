@@ -109,6 +109,14 @@ public class ControladorPdfCheckin extends HttpServlet {
             par2.add(new Phrase(Chunk.NEWLINE));
             documento.add(par2); 
             
+            Paragraph par5 = new Paragraph();
+            Font espacio = new Font(Font.FontFamily.TIMES_ROMAN,16,Font.NORMAL,BaseColor.BLACK);
+            par5.add(new Phrase(" ", espacio));
+            par5.setAlignment(Element.ALIGN_JUSTIFIED);
+            par5.add(new Phrase(Chunk.NEWLINE));
+            par5.add(new Phrase(Chunk.NEWLINE));
+            documento.add(par5); 
+            
             
             PdfPTable tablaC = new PdfPTable(4);
             
@@ -128,6 +136,14 @@ public class ControladorPdfCheckin extends HttpServlet {
             tablaC.addCell(datos.getRutCli());
             
             documento.add(tablaC);
+            
+             Paragraph par6 = new Paragraph();
+            Font espacio2 = new Font(Font.FontFamily.TIMES_ROMAN,16,Font.NORMAL,BaseColor.BLACK);
+            par6.add(new Phrase(" ", espacio2));
+            par6.setAlignment(Element.ALIGN_JUSTIFIED);
+            par6.add(new Phrase(Chunk.NEWLINE));
+            par6.add(new Phrase(Chunk.NEWLINE));
+            documento.add(par6); 
             
             PdfPTable tablaD = new PdfPTable(6);
             
@@ -153,6 +169,32 @@ public class ControladorPdfCheckin extends HttpServlet {
             tablaD.addCell(datos.getMonto());
             
             documento.add(tablaD);
+            
+            
+            Paragraph par7 = new Paragraph();
+            Font espacio3 = new Font(Font.FontFamily.TIMES_ROMAN,16,Font.NORMAL,BaseColor.BLACK);
+            par7.add(new Phrase(" ", espacio3));
+            par7.setAlignment(Element.ALIGN_JUSTIFIED);
+            par7.add(new Phrase(Chunk.NEWLINE));
+            par7.add(new Phrase(Chunk.NEWLINE));
+            documento.add(par7);
+            
+            Paragraph par8 = new Paragraph();
+            Font espacio4 = new Font(Font.FontFamily.TIMES_ROMAN,16,Font.NORMAL,BaseColor.BLACK);
+            par8.add(new Phrase(" ", espacio4));
+            par8.setAlignment(Element.ALIGN_JUSTIFIED);
+            par8.add(new Phrase(Chunk.NEWLINE));
+            par8.add(new Phrase(Chunk.NEWLINE));
+            documento.add(par8);
+            
+            Paragraph par9 = new Paragraph();
+            Font espacio5 = new Font(Font.FontFamily.TIMES_ROMAN,16,Font.NORMAL,BaseColor.BLACK);
+            par9.add(new Phrase(" ", espacio5));
+            par9.setAlignment(Element.ALIGN_JUSTIFIED);
+            par9.add(new Phrase(Chunk.NEWLINE));
+            par9.add(new Phrase(Chunk.NEWLINE));
+            documento.add(par9);
+            
             
             Paragraph par3 = new Paragraph();
             Font fontF = new Font(Font.FontFamily.TIMES_ROMAN,16,Font.NORMAL,BaseColor.BLACK);
