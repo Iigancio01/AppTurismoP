@@ -1,3 +1,10 @@
+<%@page import="ModeloDAO.ArriendoDAO"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="Config.Conexion"%>
+<%@page import="oracle.jdbc.OracleCallableStatement"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="oracle.jdbc.OracleTypes"%>
+<%@page import="java.sql.CallableStatement"%>
 <%@page import="Modelo.Arriendo"%>
 <%@page import="Modelo.PagoKhipu"%>
 <%@page import="Modelo.UrlKhipu"%>
@@ -109,16 +116,32 @@
                                     <button class="button button-secondary">Volver</button>
                             </div>
                             <%
+                                
                                 UrlKhipu Rurl = new UrlKhipu();
                                 PagoKhipu pago = new PagoKhipu();
-                                Arriendo arri = new Arriendo();
-                                
-                                
+                               //     Connection con;
+
+                               // Arriendo arri = new Arriendo();
+                             // Conexion conex= new Conexion();
+                /*            con=conex.getConnection();
+
+                  CallableStatement sp_listar_id_arr = con.prepareCall("{call sp_listar_id_arr(?)}");
+                    sp_listar_id_arr.registerOutParameter(1, OracleTypes.CURSOR);
+                    sp_listar_id_arr.execute();
+                    ResultSet rs = ((OracleCallableStatement)sp_listar_id_arr).getCursor(1);
+ 
+
+                    while(rs.next()){
+                        arri.setIdArriendo(rs.getString("IdArriSeq"));
+                    }*/
+                ArriendoDAO arriDAO = new ArriendoDAO();
+                Arriendo mon=(Arriendo)arriDAO.monto();
+            
                                 String NombreT="Departamento en Coquimbo 3 habitaciones";
                                 
-                                int monto=0;
-                                
-                                
+                               int monto =mon.getmonto_pago();
+                                System.out.println("pago1:"+monto);
+                    
                             %>
                             <div class="flex-end">
                                         

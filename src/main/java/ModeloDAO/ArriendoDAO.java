@@ -229,6 +229,24 @@ public boolean addArriendoCli(Arriendo arri) {
             System.out.println("No se ha podido eliminar el arriendo"+ e.getMessage());
         }
         return false;
+    }    
+    public Arriendo monto() {        
+        try{
+            con=conex.getConnection();
+               CallableStatement sp_monto_arriendo = con.prepareCall("{call sp_monto_arriendo(?)}");
+                      sp_monto_arriendo.registerOutParameter(1, OracleTypes.CURSOR);
+                      sp_monto_arriendo.execute();
+                      ResultSet rs = ((OracleCallableStatement)sp_monto_arriendo).getCursor(1);
+
+
+                      while(rs.next()){
+                          arri.setmonto_pago(rs.getInt("monto"));
+                          
+                          }
+        }catch(Exception e){
+            System.out.println("No se ha podido eliminar el arriendo"+ e.getMessage());
+        }
+        return arri;
     }
 }
 

@@ -30,11 +30,11 @@ public class PagoKhipu {
        
             int receiverId = 405842;
             String secretKey ="2c06ba672675be06d446635096be12d08873c3e6";
-            monto=arrie.getMonto();
+            //monto=arrie.getMonto();
             System.out.println("pago: "+monto);
             Double montoD = Double.valueOf(monto);
             
-            //System.out.println("pago: "+montoD);
+            System.out.println("pago: "+montoD);
 
             ApiClient apiClient = new ApiClient();
             apiClient.setKhipuCredentials(receiverId, secretKey);
