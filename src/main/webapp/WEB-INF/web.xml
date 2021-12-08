@@ -52,6 +52,10 @@
         <servlet-name>ControladorPdfChecklist</servlet-name>
         <servlet-class>Controlador.ControladorPdfChecklist</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ControladorConfirmarPago</servlet-name>
+        <servlet-class>Controlador.ControladorConfirmarPago</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Controlador</servlet-name>
         <url-pattern>/Controlador</url-pattern>
@@ -103,6 +107,10 @@
     <servlet-mapping>
         <servlet-name>ControladorPdfChecklist</servlet-name>
         <url-pattern>/ControladorPdfChecklist</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorConfirmarPago</servlet-name>
+        <url-pattern>/ControladorConfirmarPago</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

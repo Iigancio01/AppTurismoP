@@ -248,6 +248,8 @@ public boolean addArriendoCli(Arriendo arri) {
         }
         return arri;
     }
+    
+    
 }
 
 
