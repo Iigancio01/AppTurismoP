@@ -18,7 +18,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/ScrollTrigger.min.js"></script>  
         <script src="https://js.stripe.com/v3/"></script>
-
+            
     </head>
     <body>
         <header class="">
@@ -26,7 +26,7 @@
             <div class="row py-2">
                 <!-- Logo -->
                 <div class="col-5 d-flex">
-                    <a href="/AppTurismoP/" class="logo me-2">
+                    <a href="/AppTurismoP/InicioCliente.jsp" class="logo me-2">
                         <strong >Turismo Real Cl</strong>
                     </a>
 
@@ -77,19 +77,14 @@
                         Fecha Fin:<br>
                         <input class="form-control" type="datetime-local" name="txtFechaFin"><br>
                        
-                        <button  class="btn btn-primary" type="submit" name="accion" value="NuevoArriendocli" >Agregar Arriendo</button><br>
+                        <button  class="btn btn-primary" type="submit" name="accion" value="NuevoArriendocli" ><a href="ControladorVistaCliente?accion=MetodoPago" >Hola</a></button><br>
                            
                     </form>
                     <form action="ControladorVistaCliente">
                         <button type="submit" name="accion" value="MetodoPago" target="ContenedorPago">Pagar</button>
-                        <a href="ControladorVistaCliente?accion=MetodoPago"  target="ContenedorPago" >Hola</a>
+                        <a href="ControladorVistaCliente?accion=MetodoPago" >Hola</a>
                     </form> 
-                    
-                    <main class="main col">
-                        <iframe name="ContenedorPago" style="height:100%; width:100%;"></iframe>
-                    </main>
-                        
-                    
+                                       
                     </div>
                 </div>      
          </section>          

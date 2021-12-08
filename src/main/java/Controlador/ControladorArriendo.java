@@ -27,6 +27,7 @@ public class ControladorArriendo extends HttpServlet {
     String VerArriendosEdit="VistaArriendos/ListarArriendosEdit.jsp";
     String AgregarArriendo="VistaArriendos/AddArriendo.jsp";
     String EditarArriendo="VistaArriendos/EditArriendo.jsp";
+    String pagoA="VistaArriendo/PagarKhipu.jsp";
     
     Arriendo arri = new Arriendo();
     ArriendoDAO arriDAO = new ArriendoDAO();
@@ -118,7 +119,7 @@ public class ControladorArriendo extends HttpServlet {
 
             arriDAO.addArriendoCli(arri);
             
-            acceso=VerArriendosEdit;
+            acceso=pagoA;
         }
         
         

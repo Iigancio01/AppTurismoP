@@ -23,7 +23,7 @@
                 <div class="row py-2">
                     <!-- Logo -->
                     <div class="col-5 d-flex">
-                        <a href="/AppTurismoP/" class="logo me-2">
+                        <a href="/AppTurismoP/InicioCliente.jsp" class="logo me-2">
                             <strong >Turismo Real Cl</strong>
                         </a>
                     </div>
