@@ -14,9 +14,9 @@ import java.sql.DriverManager;
  */
 public class Conexion {
     Connection con;
-    String url="jdbc:oracle:thin:@localhost:1521:xe";
-    String user="PRUEBAT";
-    String pass="123";
+    String url="jdbc:oracle:thin:@34.176.137.180:1521:xe";
+    String user="C##VICENTE";
+    String pass="123456";
     
     public Connection getConnection(){
         try{

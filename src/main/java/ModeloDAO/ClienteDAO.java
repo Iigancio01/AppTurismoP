@@ -46,7 +46,7 @@ public class ClienteDAO implements CrudCliente{
                             cli.setAppellidoPC(rs.getString("APELLIDOP"));
                             cli.setApellidoMC(rs.getString("APELLIDOM"));
                             cli.setnombre_com(rs.getString("nombre_com"));
-                            cli.setestado(parseInt(rs.getString("activo")));
+                            cli.setestado(parseInt(rs.getString("estado")));
                             
                             datos.add(cli);
                             }
@@ -74,7 +74,7 @@ public class ClienteDAO implements CrudCliente{
                         cli.setAppellidoPC(rs.getString("APELLIDOP"));
                         cli.setApellidoMC(rs.getString("APELLIDOM"));
                         cli.setnombre_com(rs.getString("nombre_com"));
-                        cli.setestado(parseInt(rs.getString("activo")));
+                        cli.setestado(parseInt(rs.getString("estado")));
 
                         }
                         }catch (Exception e){

@@ -40,7 +40,7 @@ public class UsuarioDAO implements ValidarLogin {
             while(rs.next()){
                 r=r+1;
                 usu.setCorreousuario(rs.getString("CORREOELECTRONICO"));
-                usu.setContraseña(rs.getString("PASSWORD_2"));
+                usu.setContraseña(rs.getString("PASSWORD"));
                 usu.setTipousuario(rs.getString("TIPO_USUARIO_IDTIPO_USUARIO"));
                 usu.setNombreusuario(rs.getString("NOMBREUSUARIO"));
 

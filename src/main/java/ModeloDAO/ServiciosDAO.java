@@ -44,7 +44,7 @@ public class ServiciosDAO implements CrudServicios {
                 Servicios se= new Servicios();
                 se.setIdSubFamiliaServicio(rs.getString("IDSUB_FAMILIA_SERVICIO"));
                 se.setIdFamiliaServicio(rs.getString("FAMILIA_SERVICIO_IDFAMILIA_SERVICIO"));
-                se.setNombreSubFamilia(rs.getString("NOM_SUBFAMILIA"));
+                se.setNombreSubFamilia(rs.getString("nombre"));
                 se.setNombreFam(rs.getString("NOM_FAMILIA"));
 
                 datos.add(se);
@@ -68,7 +68,7 @@ public class ServiciosDAO implements CrudServicios {
             while(rs.next()){
               se.setIdSubFamiliaServicio(rs.getString("IDSUB_FAMILIA_SERVICIO"));
               se.setIdFamiliaServicio(rs.getString("FAMILIA_SERVICIO_IDFAMILIA_SERVICIO"));
-              se.setNombreSubFamilia(rs.getString("NOM_SUBFAMILIA"));
+              se.setNombreSubFamilia(rs.getString("nombre"));
               se.setNombreFam(rs.getString("NOM_FAMILIA"));
             }
         }catch(Exception e){

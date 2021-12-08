@@ -80,10 +80,7 @@
                         <button  class="btn btn-primary" type="submit" name="accion" value="NuevoArriendocli">Pagar</button><br>
                            
                     </form>
-                    <form action="ControladorVistaCliente">
-                        <button type="submit" name="accion" value="MetodoPago" target="ContenedorPago">Pagar</button>
-                        <a href="ControladorVistaCliente?accion=MetodoPago" >Hola</a>
-                    </form> 
+                    
                                        
                     </div>
                 </div>      

@@ -164,7 +164,7 @@ public class DepartamentosDAO implements CrudDepartamento {
                 d.setIdComuna(rs.getString("COMUNA_IDCOMUNA"));
                 d.setDireccion(rs.getString("DIRECCION"));
                 d.setDescripcion(rs.getString("Descripcion"));
-                d.setEstadoDpto(parseInt(rs.getString("ESTADODPTO")));
+                d.setEstadoDpto(parseInt(rs.getString("ESTADO")));
                 d.setnombre_com(rs.getString("nombre_com"));
                 d.settarifa(parseInt(rs.getString("tarifa")));
                 datos.add(d);
@@ -191,7 +191,7 @@ public class DepartamentosDAO implements CrudDepartamento {
                 d.setIdComuna(rs.getString("COMUNA_IDCOMUNA"));
                 d.setDireccion(rs.getString("DIRECCION"));
                 d.setDescripcion(rs.getString("Descripcion"));
-                d.setEstadoDpto(parseInt(rs.getString("ESTADODPTO")));
+                d.setEstadoDpto(parseInt(rs.getString("ESTADO")));
                 d.setnombre_com(rs.getString("nombre_com"));
                 d.settarifa(parseInt(rs.getString("tarifa")));
                 datos.add(d);
