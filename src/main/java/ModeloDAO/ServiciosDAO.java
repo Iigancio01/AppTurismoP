@@ -133,5 +133,86 @@ public class ServiciosDAO implements CrudServicios {
         }
         return false;
     }
+        @Override
+
+        public boolean addTour(Servicios se) {
+
+        try{
+            con=conex.getConnection();
+            
+            CallableStatement sp_id_tour = con.prepareCall("{call sp_id_tour(?)}");
+                      sp_id_tour.registerOutParameter(1, OracleTypes.CURSOR);
+                      sp_id_tour.execute();
+                      ResultSet rs = ((OracleCallableStatement)sp_id_tour).getCursor(1);
+
+
+                      while(rs.next()){
+                          se.setIdservicio(rs.getString("IdTourSe"));
+
+            CallableStatement sp_insertar_tour = con.prepareCall("{call sp_insertar_tour(?,?)}");
+                sp_insertar_tour.setString(1,se.getIdservicio());
+                sp_insertar_tour.setString(2,se.getRut());
+                sp_insertar_tour.execute();
+                
+                     
+                   CallableStatement sp_calcula_tour = con.prepareCall("{call sp_calcula_tour(?,?)}");
+                             sp_calcula_tour.setInt(1,se.getNum());
+                             sp_calcula_tour.registerOutParameter(2, OracleTypes.CURSOR);
+                             sp_calcula_tour.execute();  
+                             ResultSet rs1 = ((OracleCallableStatement)sp_calcula_tour).getCursor(2);
+                             while(rs1.next()){
+                             se.setMonto(rs1.getInt("monto_tot"));
+                             
+                               CallableStatement sp_actu_tour = con.prepareCall("{call sp_actu_tour(?,?)}");
+                             sp_actu_tour.setString(1,se.getIdservicio());
+                             sp_actu_tour.setInt(2,se.getMonto());
+                             sp_actu_tour.execute();
+                             } }
+        
+        }catch(Exception e){
+            System.out.println("No se ha podido eliminar la mantencion"+ e.getMessage());
+        }
+        return false;
+    }
+            public Servicios monto() {        
+        try{
+            con=conex.getConnection();
+               CallableStatement sp_monto_tour = con.prepareCall("{call sp_monto_tour(?)}");
+                      sp_monto_tour.registerOutParameter(1, OracleTypes.CURSOR);
+                      sp_monto_tour.execute();
+                      ResultSet rs = ((OracleCallableStatement)sp_monto_tour).getCursor(1);
+
+
+                      while(rs.next()){
+                          se.setMonto(rs.getInt("monto"));
+                          
+                          }
+        }catch(Exception e){
+            System.out.println("No se ha podido eliminar el arriendo"+ e.getMessage());
+        }
+        return se;
+    }
+        @Override
+    public boolean validarTour() {        
+        try{
+            con=conex.getConnection();
+            CallableStatement sp_valida_tour = con.prepareCall("{call sp_valida_tour}");
+            sp_valida_tour.execute();
+        }catch(Exception e){
+            System.out.println("No se ha podido eliminar el arriendo"+ e.getMessage());
+        }
+        return false;
+    }   
+            @Override
+    public boolean eliminaTour() {        
+        try{
+            con=conex.getConnection();
+            CallableStatement sp_elimina_tour = con.prepareCall("{call sp_elimina_tour}");
+            sp_elimina_tour.execute();
+        }catch(Exception e){
+            System.out.println("No se ha podido eliminar el arriendo"+ e.getMessage());
+        }
+        return false;
+    } 
     
 }

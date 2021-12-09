@@ -5,6 +5,7 @@
 package Controlador;
 
 import ModeloDAO.ArriendoDAO;
+import ModeloDAO.ServiciosDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -19,6 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class ControladorConfirmarPago extends HttpServlet {
     ArriendoDAO arriDAO= new ArriendoDAO();
+    ServiciosDAO servDAO= new ServiciosDAO();
     
     String inicio= "InicioCliente.jsp";
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -41,9 +43,20 @@ public class ControladorConfirmarPago extends HttpServlet {
             acceso =inicio;
             
             
+        }if(action.equalsIgnoreCase("PagoExitoso2")){
+            
+            servDAO.validarTour();
+            acceso =inicio;
+            
+            
         }if(action.equalsIgnoreCase("PagoCancelado")){
             
             arriDAO.eliminaArriendo();
+            
+            acceso =inicio;
+        }if(action.equalsIgnoreCase("PagoCancelado2")){
+            
+            servDAO.eliminaTour();
             
             acceso =inicio;
         }

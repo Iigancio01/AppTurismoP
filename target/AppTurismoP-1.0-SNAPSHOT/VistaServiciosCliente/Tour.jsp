@@ -75,7 +75,7 @@
                             </span>
                         </div>
                         <div class="d-flex justify-content-end align-items-center ">
-                            <a href="ControladorVistaCliente?accion=ArrendarDpto" class="btn-precio btn  px-3 py-2 ">
+                            <a href="ControladorVistaCliente?accion=ServiTour2" class="btn-precio btn  px-3 py-2 ">
                                 <span>Alquilar</span>
                             </a>
                         </div>

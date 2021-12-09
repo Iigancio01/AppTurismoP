@@ -119,21 +119,8 @@
                                 
                                 UrlKhipu Rurl = new UrlKhipu();
                                 PagoKhipu pago = new PagoKhipu();
-                               //     Connection con;
-
-                               // Arriendo arri = new Arriendo();
-                             // Conexion conex= new Conexion();
-                /*            con=conex.getConnection();
-
-                  CallableStatement sp_listar_id_arr = con.prepareCall("{call sp_listar_id_arr(?)}");
-                    sp_listar_id_arr.registerOutParameter(1, OracleTypes.CURSOR);
-                    sp_listar_id_arr.execute();
-                    ResultSet rs = ((OracleCallableStatement)sp_listar_id_arr).getCursor(1);
- 
-
-                    while(rs.next()){
-                        arri.setIdArriendo(rs.getString("IdArriSeq"));
-                    }*/
+                               
+               
                 ArriendoDAO arriDAO = new ArriendoDAO();
                 Arriendo mon=(Arriendo)arriDAO.monto();
             

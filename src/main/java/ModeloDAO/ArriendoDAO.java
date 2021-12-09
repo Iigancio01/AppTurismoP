@@ -177,12 +177,10 @@ public boolean addArriendoCli(Arriendo arri) {
                            CallableStatement sp_calcular_monto = con.prepareCall("{call sp_calcular_monto(?,?)}");
                              sp_calcular_monto.setString(1,arri.getIdArriendo());
                              sp_calcular_monto.registerOutParameter(2, OracleTypes.CURSOR);
-                          System.out.println("uwu");
                              sp_calcular_monto.execute();  
                              ResultSet rs1 = ((OracleCallableStatement)sp_calcular_monto).getCursor(2);
                              while(rs1.next()){
                              arri.setMonto(rs1.getInt("monto_tot"));
-                                 System.out.println("aaaaa:"+arri.getMonto());
                              CallableStatement sp_actu_monto = con.prepareCall("{call sp_actu_monto(?,?)}");
                              sp_actu_monto.setString(1,arri.getIdArriendo());
                              sp_actu_monto.setInt(2,arri.getMonto());
@@ -259,7 +257,8 @@ public boolean addArriendoCli(Arriendo arri) {
             System.out.println("No se ha podido eliminar el arriendo"+ e.getMessage());
         }
         return false;
-    }    
+    }   
+            @Override
     public boolean eliminaArriendo() {        
         try{
             con=conex.getConnection();

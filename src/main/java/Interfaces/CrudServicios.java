@@ -18,4 +18,8 @@ public interface CrudServicios {
     public boolean addServicios(Servicios se);
     public boolean editServicio(Servicios se);
     public boolean deleteServicio(String IdSubFamiliaServicio);
+    public boolean addTour(Servicios se);
+    public boolean validarTour(); 
+    public boolean eliminaTour();
+
 }

@@ -12,8 +12,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import Modelo.PagoKhipu;
+import Modelo.Servicios;
 import Modelo.UrlKhipu;
+import ModeloDAO.ServiciosDAO;
 import com.khipu.ApiException;
+import static java.lang.Integer.parseInt;
+import java.util.HashSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -28,16 +32,21 @@ public class ControladorVistaCliente extends HttpServlet {
     String Farriendo="VistaArriendo/ArriendoCliente.jsp";
     String ArriendosS="VistaArriendo/Arriendo.jsp";
     String DepartamentoS="VistaArriendo/Departamento.jsp";
-    String pagoA="VistaArriendo/PagarKhipu.jsp";
+    String pagoA="VistaServiciosCliente/PagoKiphuT.jsp";
     String ServiEx="VistaServiciosCliente/ListaServiciosCliente.jsp";
     String ServiTour="VistaServiciosCliente/Tour.jsp";
+    String ServiTour2="VistaServiciosCliente/Vistaform.jsp";
+    String pagoEx="VistaServiciosCliente/ConfirmacionPago.jsp";
+    String pagoCan="VistaServiciosCliente/CancelarPago.jsp";
     String url;
    
     
     UrlKhipu Rurl = new UrlKhipu();
     PagoKhipu pago = new PagoKhipu();
+    Servicios serv = new Servicios();
+    ServiciosDAO servDAO = new ServiciosDAO();
     
-  
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -80,6 +89,26 @@ public class ControladorVistaCliente extends HttpServlet {
         }else if(action.equalsIgnoreCase("ServicioTour")){
             
             acceso=ServiTour;
+        }else if(action.equalsIgnoreCase("Nuevotour")){
+          String rut=request.getParameter("txtrut");
+          int num=parseInt(request.getParameter("txtnum"));
+          
+          
+           serv.setRut(rut);
+           serv.setNum(num);
+           
+           servDAO.addTour(serv);
+           
+            acceso=pagoA;
+        }else if(action.equalsIgnoreCase("ServiTour2")){
+                        acceso=ServiTour2;
+
+        }else if(action.equalsIgnoreCase("PagoExitoso")){
+                        acceso=pagoEx;
+
+        }else if(action.equalsIgnoreCase("PagoCancelado")){
+                        acceso=pagoCan;
+
         }
         
         RequestDispatcher vista=request.getRequestDispatcher(acceso);
